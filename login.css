@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e9d6d6;
+}
+
+/* preloader */
+#preloader{
+    background: #fff;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.loading{
+    top: 20%;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 150px auto;
+    background-color: white;
+    animation: spin 2s linear infinite;
+    animation-direction: reverse;
+}
+
+.shape{
+    display: block;
+    position: absolute;
+    height: 20px;
+    width: 40px;
+    background-color: #fff;
+    mix-blend-mode: exclusion;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+}
+
+.shape.shape-1{
+    animation: spin1 2s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+.shape.shape-2{
+    animation: spin2 2s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+.shape.shape-3{
+    animation: spin3 2s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+.shape.shape-4{
+    animation: spin4 2s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+.shape.shape-1{
+    top: 20px;
+    left: 40px;
+}
+
+.shape.shape-2{
+    right: 20px;
+    top: 40px;
+    width: 20px;
+    height: 40px;
+}
+
+.shape.shape-3{
+    bottom: 20px;
+    left: 40px;
+}
+
+.shape.shape-4{
+    left: 20px;
+    top: 40px;
+    width: 20px;
+    height: 40px;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes spin1 {
+    25%{
+        transform: rotate(90deg) translate(30px, -10px) scaleX(1);
+    }
+    100%{
+        transform: rotate(90deg) translate(30px, -10px) scaleX(2);
+    }
+}
+
+@keyframes spin2 {
+    15%{
+        transform: rotate(0deg) translate(0px) scaleY(1);
+    }
+    50%{
+        transform: rotate(90deg) translate(10px, 30px) scaleY(1);
+    }
+    100%{
+        transform: rotate(90deg) translate(10px, 30px) scaleY(2);
+    }
+}
+
+@keyframes spin3 {
+    40%{
+        transform: rotate(0deg) translate(0px) scaleX(1);
+    }
+    75%{
+        transform: rotate(90deg) translate(-30px, 10px) scaleX(1);
+    }
+    100%{
+        transform: rotate(90deg) translate(-30px, 10px) scaleX(2);
+    }
+}
+
+@keyframes spin4 {
+    65%{
+        transform: rotate(0deg) translate(0px) scaleY(1);
+    }
+    100%{
+        transform: rotate(90deg) translate(-10px, -30px) scaleY(2);
+    }
+}
+/* end of preloader */
+
+/* header */
+p{
+    font-weight: 300;
+    color: #111;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header.sticky{
+    background: #fff;
+    padding: 10px 100px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+header .logo{
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+header.sticky .logo{
+    color: #111;
+}
+
+header .logo span{
+    color: #ff0157;
+}
+
+header .navigation{
+    position: relative;
+    display: flex;
+}
+
+header .navigation li{
+    list-style: none;
+    margin-left: 30px;
+}
+
+header .navigation li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+}
+
+header.sticky .navigation li a{
+    color: #111;
+}
+
+header .navigation li a:hover{
+    color: #ff0157;
+}
+
+header .navigation li .search{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+header .navigation li .search.active{
+    width: 120px;
+}
+
+header .navigation li .search .icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    cursor: pointer;
+}
+
+header .navigation li .search .icon::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border: 1px solid #ff0157;
+    border-radius: 50%;
+    transform: translate(-2px, -2px);
+}
+
+header .navigation li .search .icon::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 4px;
+    background: #ff0157;
+    transform: translate(2px, 2px) rotate(315deg);
+}
+
+header .navigation li .search .input{
+    position: relative;
+    width: 100px;
+    height: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .navigation li .search .input input{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+header .navigation li .search .clear{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    right: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .navigation li .search .clear::before{
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 15px;
+    background: #999;
+    transform: rotate(45deg);
+}
+
+header .navigation li .search .clear::after{
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 15px;
+    background: #999;
+    transform: rotate(315deg);
+}
+/* end of header */
+
+/* user_page, admin_page */
+.container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.container .content{
+    text-align: center;
+}
+
+.container .content h3{
+    font-size: 30px;
+    color: #333;
+}
+
+.container .content h3 span{
+    background: crimson;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0 15px;
+}
+
+.container .content h1{
+    font-size: 50px;
+    color: #333;
+}
+
+.container .content h1 span{
+    color: crimson;
+}
+
+.container .content p{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.container .content .btn{
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 20px;
+    background: #333;
+    color: #fff;
+    margin: 0 5px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.container .content .btn:hover{
+    background: crimson;
+}
+/* end of user_page, admin_page */
+
+/* register_form, login_form */
+.form_container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.form_container form{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    background: #fff;
+    text-align: center;
+    width: 500px;
+}
+
+.form_container form h3{
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form_container form input,
+.form_container form select{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 17px;
+    margin: 8px 0;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.form_container form select option{
+    background: #fff;
+}
+
+.form_container form .form_btn{
+    background: #fbd0d9;
+    color: crimson;
+    text-transform: capitalize;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form_container form .form_btn:hover{
+    background: crimson;
+    color: #fff;
+}
+
+.form_container form p{
+    margin-top: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.form_container form p a{
+    color: crimson;
+    text-decoration: none;
+}
+
+.form_container form .error_msg{
+    margin: 10px 0;
+    display: block;
+    background: crimson;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+}

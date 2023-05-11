@@ -18,6 +18,7 @@
                 $_SESSION['user_name'] = $row['name'];
                 header('location:user_page.php', true);
             }
+            $_SESSION['email'] = $row['email'];
         }else{
             $error[] = 'incorrect email or password!';
         }

@@ -39,6 +39,7 @@
             <p>This is an admin page</p>
             <a href="register_form.php" class="btn">Register</a>
             <a href="logout.php" class="btn">Logout</a>
+            <a href="delete_account.php" class="btn">Delete this account</a>
         </div>
     </div>
     <script src="script.js" type="text/javascript"></script>

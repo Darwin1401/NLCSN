@@ -31,7 +31,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Form</title>
+    <title>Đăng ký</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -54,7 +54,7 @@
     </header>
     <div class="form_container">
         <form action="" method="post">
-            <h3>Register now</h3>
+            <h3>Đăng ký tài khoản</h3>
             <?php
                 if(isset($error)){
                     foreach($error as $error){
@@ -62,16 +62,16 @@
                     };
                 };
             ?>
-            <input type="text" name="username" required placeholder="Enter your username">
-            <input type="email" name="email" required placeholder="Enter your email">
-            <input type="password" name="password" required placeholder="Enter your password">
-            <input type="password" name="cpassword" required placeholder="Confirm your password">
+            <input type="text" name="username" required placeholder="Nhập vào tên người dùng của bạn">
+            <input type="email" name="email" required placeholder="Nhập vào email của bạn">
+            <input type="password" name="password" required placeholder="Nhập vào mật khẩu của bạn">
+            <input type="password" name="cpassword" required placeholder="Xác nhận lại mật khẩu của bạn">
             <select name="user_type">
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
             </select>
-            <input type="submit" name="submit" value="register now" class="form_btn">
-            <p>Already have an account? <a href="login_form.php">Login now</a></p>
+            <input type="submit" name="submit" value="Đăng ký" class="form_btn">
+            <p>Đã có tài khoản? <a href="login_form.php">Đăng nhập</a></p>
         </form>
     </div>
     <script src="script.js" type="text/javascript"></script>

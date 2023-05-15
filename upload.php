@@ -32,10 +32,10 @@
                     echo '<li><a href="login_form.php" onclick="toggleMenu();">Log in</a></li>';
                 }
                 elseif(isset($_SESSION["admin_name"])){
-                    echo '<li><a href="admin_page.php">'.$_SESSION['admin_name'].'</a>|<a href="logout.php">Logout</a></li>';
+                    echo '<li><a href="admin_page.php">'.$_SESSION['admin_name'].'</a>|<a href="logout.php">Đăng xuất</a></li>';
                 }
                 else{
-                    echo '<li><a href="user_page.php">'.$_SESSION['user_name'].'</a>|<a href="logout.php">Logout</a></li>';
+                    echo '<li><a href="user_page.php">'.$_SESSION['user_name'].'</a>|<a href="logout.php">Đăng xuất</a></li>';
                 }
             ?>
             <!-- <li><a href="login.html" onclick="toggleMenu();">Log in</a></li> -->
@@ -57,6 +57,15 @@
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
             <h2>Upload</h2>
             <input type="file" name="file" class="upload_box">
+            <p>Chọn chuyên ngành:</p>
+            <select name="nganh">
+                <option value="Luật">Luật</option>
+                <option value="Bách Khoa">Bách Khoa</option>
+                <option value="CNTT&TT">CNTT&TT</option>
+                <option value="Chính Trị">Chính Trị</option>
+                <option value="Nông Nghiệp">Nông Nghiệp</option>
+                <option value="Kinh Tế">Kinh tế</option>
+            </select>
             <input type="submit" name="submit" value="submit">
         </form>
     </div>
@@ -70,6 +79,8 @@
         $pdf = $_FILES['file']['name'];
         $target_file = $target_dir . basename($_FILES["file"]["name"]);
         $uploadOk = 1;
+        $username = $_SESSION['username'];
+        $nganh = $_POST['nganh'];
         if(file_exists($target_file)){
             echo "<script> alert('Sorry, file already exists.'); </script><br>";
             $uploadOk = 0;
@@ -79,8 +90,8 @@
           // if everything is ok, try to upload file
           } else {
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO file(pdf)
-                        VALUES('$pdf')";
+                $sql = "INSERT INTO file(user_name, pdf, nganh)
+                        VALUES('$username' ,'$pdf', '$nganh')";
                 $query = mysqli_query($conn, $sql);
                 echo "<script> alert('The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.')</script><br>";
             }

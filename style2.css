@@ -539,6 +539,22 @@ section{
     outline: none;
 }
 
+.box form p{
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    color: #fff;
+}
+
+.box form select{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 17px;
+    margin: 8px 0;
+    background: #eee;
+    border-radius: 5px;
+}
+
 ::-webkit-file-upload-button{
     color: white;
     background: #f15b25;

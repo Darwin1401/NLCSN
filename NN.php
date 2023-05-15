@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tìm kiếm</title>
+    <title>Searching</title>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
@@ -38,41 +38,13 @@
                     echo '<li><a href="user_page.php">'.$_SESSION['user_name'].'</a>|<a href="logout.php">Logout</a></li>';
                 }
             ?>
-            <!-- <li><a href="login.html" onclick="toggleMenu();">Log in</a></li> -->
-            <li>
-                <div class="search">
-                    <form action="search.php" method="post">
-                        <div class="icon"></div>
-                        <div class="input">
-                            <input type="text" placeholder="Tìm kiếm" id="mysearch" onkeyup="search_func()" data-search>
-                        </div>
-                        <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
-                    </form>
-                </div>
-            </li>
         </ul>
     </header>
     <div class="container_fluid">
-        <?php
-            if(isset($_SESSION["admin_name"])){
-                echo '<div class="container_2">
-                        <div class="upload">
-                            <a href="upload.php">Click here to upload file</a>
-                        </div>
-                    </div>';
-            }
-            else{
-                echo '<div class="container_2">
-                        <div class="upload">
-                            <p>To upload, you need to login as admin.</p>
-                        </div>
-                    </div>';
-            }
-        ?>
         <div class="container_1">
             <div class="pdf_list" id="pdf_list">
                 <?php
-                    $sql = "SELECT pdf FROM file";
+                    $sql = "SELECT pdf FROM file WHERE nganh = 'Nông Nghiệp'";
                     $query = mysqli_query($conn, $sql);
                     while($info=mysqli_fetch_array($query)){
                         ?>

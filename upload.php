@@ -38,18 +38,6 @@
                     echo '<li><a href="user_page.php">'.$_SESSION['user_name'].'</a>|<a href="logout.php">Đăng xuất</a></li>';
                 }
             ?>
-            <!-- <li><a href="login.html" onclick="toggleMenu();">Log in</a></li> -->
-            <!-- <li>
-                <div class="search">
-                    <form action="search.php" method="post">
-                        <div class="icon"></div>
-                        <div class="input">
-                            <input type="text" placeholder="Search" id="mysearch" onkeyup="search_func()" data-search>
-                        </div>
-                        <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
-                    </form>
-                </div>
-            </li> -->
         </ul>
     </header>
     <div class="box">
